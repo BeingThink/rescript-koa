@@ -1,0 +1,36 @@
+{
+  "name": "@futurert/rescript-koa",
+  "private": false,
+  "version": "0.0.1-alpha.13",
+  "description": "koa.js bindings for rescript.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "rescript",
+    "build": "npm run dev && yalc publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FutureRuntime/rescript-koa.git"
+  },
+  "keywords": [
+    "rescript",
+    "koa",
+    "type"
+  ],
+  "author": "Jinwei Peng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FutureRuntime/rescript-koa/issues"
+  },
+  "homepage": "https://github.com/FutureRuntime/rescript-koa#readme",
+  "devDependencies": {
+    "koa": "^2.13.4",
+    "rescript": "^9.1.4"
+  },
+  "peerDependencies": {
+    "koa": "^2.13.4"
+  },
+  "dependencies": {
+    "rescript-nodejs": "^14.3.0"
+  }
+}
