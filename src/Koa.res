@@ -19,11 +19,11 @@ type app = {
 // base on node.js http-server
 type server
 
-type context = {
-  mutable body: string
-}
+type context = {mutable body: string}
 
-type middleware = context => unit
+type next<'a> = ('a) => Js.Promise.t<'a>
+
+type middleware = (context, (. unit) => Js.Promise.t<unit>) => unit
 
 @send external use: (app, middleware) => unit = "use"
 

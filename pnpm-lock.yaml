@@ -1,18 +1,24 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@ryyppy/rescript-promise': ^2.1.0
   koa: ^2.13.4
-  rescript: ^9.1.4
+  rescript: 10.0.0-alpha.1
   rescript-nodejs: ^14.3.0
 
 dependencies:
+  '@ryyppy/rescript-promise': 2.1.0
   rescript-nodejs: 14.3.0
 
 devDependencies:
   koa: 2.13.4
-  rescript: 9.1.4
+  rescript: 10.0.0-alpha.1
 
 packages:
+
+  /@ryyppy/rescript-promise/2.1.0:
+    resolution: {integrity: sha512-+dW6msBrj2Lr2hbEMX+HoWCvN89qVjl94RwbYWJgHQuj8jm/izdPC0YzxgpGoEFdeAEW2sOozoLcYHxT6o5WXQ==}
+    dev: false
 
   /accepts/1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
@@ -246,8 +252,8 @@ packages:
     resolution: {integrity: sha512-ybDIzC1C72ucXZiicCePXNd/2Z//2LO1rcsMGXlnuPZ90uPo5zGSzLH7Fi8WMEnlMm+yY2ISSgZpp3RkqDDoeA==}
     dev: false
 
-  /rescript/9.1.4:
-    resolution: {integrity: sha512-aXANK4IqecJzdnDpJUsU6pxMViCR5ogAxzuqS0mOr8TloMnzAjJFu63fjD6LCkWrKAhlMkFFzQvVQYaAaVkFXw==}
+  /rescript/10.0.0-alpha.1:
+    resolution: {integrity: sha512-DbopEAvPkPBWrV2bGWKBiFeMHGRM4zCaUC+WNHlsSBXAeby67BngFO0mB8SIbw6vp9EnlwViJXyspUjra9tCdQ==}
     hasBin: true
     requiresBuild: true
     dev: true
