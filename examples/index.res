@@ -8,7 +8,7 @@ let app = Koa.koa()
 app.env = "development"
 
 // you can use middleware like this
-app->use((context, next: (. unit) => Js.Promise.t<unit>) => {
+app->use((context, next) => {
   Js.log("1")
   next(.)->then(_ => {
     Js.log("2")
@@ -16,7 +16,7 @@ app->use((context, next: (. unit) => Js.Promise.t<unit>) => {
   })->ignore;
 })
 
-app->use((context, next: (. unit) => Js.Promise.t<unit>) => {
+app->use((context, next) => {
   Js.log("3")
   next(.)->then(_ => {
     Js.log("4")

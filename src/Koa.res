@@ -21,8 +21,6 @@ type server
 
 type context = {mutable body: string}
 
-type next<'a> = ('a) => Js.Promise.t<'a>
-
 type middleware = (context, (. unit) => Js.Promise.t<unit>) => unit
 
 @send external use: (app, middleware) => unit = "use"
