@@ -18,10 +18,43 @@ type app = {
 
 // base on node.js http-server
 type server
+// simple object that just has key value
+type keyValue
+type connection
 
-type context = {mutable body: string}
+type req = {
+  mutable header: keyValue,
+  mutable headers: keyValue,
+  mutable url: string,
+  mutable origin: string,
+  mutable href: string,
+  mutable method: string,
+  mutable path: string,
+  mutable query: keyValue,
+  mutable querystring: string,
+  mutable search: string,
+  mutable host: string,
+  mutable hostname: string,
+  mutable fresh: bool,
+  mutable stale: bool,
+  mutable idempotent: bool,
+  mutable socket: connection, // TODO: type
+  mutable charset: string,
+  mutable length: int,
+  mutable protocol: string,
+  mutable secure: string,
+  ips: array<string>,
+  mutable ip: string,
+  subdomains: array<string>,
+  mutable accept: keyValue,
+}
 
-type middleware = (context, (. unit) => Js.Promise.t<unit>) => unit
+type context = {
+  mutable body: string,
+  request: req,
+}
+
+type middleware = (context, @uncurry (unit) => Js.Promise.t<unit>) => unit
 
 @send external use: (app, middleware) => unit = "use"
 
