@@ -49,6 +49,8 @@ type req = {
   mutable accept: keyValue,
 }
 
+@send external accepts: (req, [string | array<string>]) => keyValue = "accepts"
+
 type context = {
   mutable body: string,
   request: req,

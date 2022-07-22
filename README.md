@@ -1,11 +1,11 @@
 # Rescript-Koa
-
+![NPM](https://img.shields.io/npm/l/@futurert/rescript-koa) ![npm](https://img.shields.io/npm/v/@futurert/rescript-koa)
 ## example
 
 ### install
 
 ```shell
-npm install @futurert/rescript-koa@0.0.1-alpha.13 --save-dev
+npm install @futurert/rescript-koa --save-dev
 ```
 
 ### bsconfig
