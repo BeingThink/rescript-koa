@@ -18,7 +18,7 @@ app->use((context, next) => {
   })->ignore;
 })
 
-app->use((context, next) => {
+app->use((_, next) => {
   Js.log("3")
   next()->then(_ => {
     Js.log("4")

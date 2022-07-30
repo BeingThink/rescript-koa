@@ -18,7 +18,7 @@ app.use(function (context, next) {
           });
     });
 
-app.use(function (context, next) {
+app.use(function (param, next) {
       console.log("3");
       Curry._1(next, undefined).then(function (param) {
             console.log("4");
