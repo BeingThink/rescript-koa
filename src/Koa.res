@@ -49,11 +49,26 @@ type req = {
   mutable accept: keyValue,
 }
 
-@send external accepts: (req, [string | array<string>]) => keyValue = "accepts"
+
+type res = {
+  header: keyValue,
+  headers: keyValue,
+  mutable status: int,
+  mutable message: string,
+  mutable length: int,
+  mutable headerSent: bool,
+  @as("type") mutable type_: string,
+  mutable lastModified: string,
+  mutable etag: string,
+  writable: bool,
+}
+
+// @send external accepts: (req, [string | array<string>]) => keyValue = "accepts"
 
 type context = {
   mutable body: string,
   request: req,
+  response: res,
 }
 
 type middleware = (context, @uncurry (unit) => Js.Promise.t<unit>) => unit
