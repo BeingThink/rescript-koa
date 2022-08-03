@@ -86,4 +86,4 @@ app->use((_, next) => {
 let _ = app->listen(8080, _ => {Js.Console.log("server is start success!")})
 ```
 
-Let's try it!
+There is a [full example](./examples//index.res) to help you start, Let's try it!

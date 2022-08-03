@@ -1,8 +1,7 @@
 open Koa
-open Promise
-
 // init koa app
 let app = Koa.koa()
+open Promise
 
 // Just for instance.
 app.env = "development"
