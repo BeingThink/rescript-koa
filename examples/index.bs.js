@@ -2,28 +2,23 @@
 'use strict';
 
 var Koa = require("koa").default;
-var Curry = require("rescript/lib/js/curry.js");
 
 var app = new Koa();
 
 app.env = "development";
 
-app.use(function (context, next) {
+app.use(async function (context, next) {
       console.log("1");
       console.log(context.request.ip);
       context.body = "hello";
-      Curry._1(next, undefined).then(function (param) {
-            console.log("2");
-            return Promise.resolve(undefined);
-          });
+      await next();
+      console.log("2");
     });
 
 app.use(function (param, next) {
       console.log("3");
-      Curry._1(next, undefined).then(function (param) {
-            console.log("4");
-            return Promise.resolve(undefined);
-          });
+      next();
+      console.log("4");
     });
 
 app.listen(8080, (function (param) {

@@ -1,12 +1,13 @@
 {
     "name": "@futurert/rescript-koa",
-    "version": "0.0.1-alpha.13",
+    "version": "0.0.1-alpha.14",
     "sources": [
         "examples",
         {
             "dir": "src",
             "subdirs": true
-        }
+        },
+        "test"
     ],
     "package-specs": {
         "module": "commonjs",

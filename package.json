@@ -5,6 +5,7 @@
   "description": "koa.js bindings for rescript.",
   "main": "index.js",
   "scripts": {
+    "compiler": "rescript",
     "dev": "node examples/index.bs.js",
     "build": "rescript && yalc publish"
   },
@@ -25,7 +26,7 @@
   "homepage": "https://github.com/FutureRuntime/rescript-koa#readme",
   "devDependencies": {
     "koa": "^2.13.4",
-    "rescript": "10.0.0-beta.3"
+    "rescript": "10.1.0"
   },
   "dependencies": {
     "@ryyppy/rescript-promise": "^2.1.0"

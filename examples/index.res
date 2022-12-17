@@ -1,28 +1,23 @@
 open Koa
 // init koa app
 let app = Koa.koa()
-open Promise
 
 // Just for instance.
 app.env = "development"
 
 // you can use middleware like this
-app->use((context, next) => {
+app->use(async (context, next) => {
   Js.log("1")
   Js.log(context.request.ip)
   context.body = "hello"
-  next()->then(_ => {
-    Js.log("2")
-    resolve()
-  })->ignore;
+  await next(.);
+  Js.log("2")
 })
 
-app->use((_, next) => {
+app->use(async (_, next) => {
   Js.log("3")
-  next()->then(_ => {
-    Js.log("4")
-    resolve()
-  })->ignore;
+  await next(.)
+  Js.log("4")
 })
 
 let _ = app->listen(8080, _ => {Js.Console.log("server is start success!")})

@@ -71,7 +71,9 @@ type context = {
   response: res,
 }
 
-type middleware = (context, @uncurry (unit) => Js.Promise.t<unit>) => unit
+type middleware = (context,  (. unit) => Js.Promise.t<unit>) => Js.Promise.t<unit>
+// type middleware = () =>
+
 
 @send external use: (app, middleware) => unit = "use"
 
