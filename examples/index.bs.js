@@ -15,9 +15,9 @@ app.use(async function (context, next) {
       console.log("2");
     });
 
-app.use(function (param, next) {
+app.use(async function (param, next) {
       console.log("3");
-      next();
+      await next();
       console.log("4");
     });
 

@@ -6,8 +6,7 @@
         {
             "dir": "src",
             "subdirs": true
-        },
-        "test"
+        }
     ],
     "package-specs": {
         "module": "commonjs",
