@@ -1,6 +1,7 @@
 {
     "name": "@futurert/rescript-koa",
     "version": "0.0.1-beta.3",
+    "namespace":"KoaJs",
     "sources": [
         "examples",
         {
@@ -12,7 +13,7 @@
         "module": "commonjs",
         "in-source": true
     },
-    "bs-dependencies": ["@ryyppy/rescript-promise"],
+    "bs-dependencies": ["@ryyppy/rescript-promise", "rescript-nodejs"],
     "suffix": ".bs.js",
     "warnings": {
         "error": "+101"

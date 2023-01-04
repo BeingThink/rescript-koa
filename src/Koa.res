@@ -1,21 +1,23 @@
-// application settings
-type app = {
-  // defaulting to the NODE_ENV or "development"
-  mutable env: string,
-  // array of signed cookie keys
-  mutable keys: array<string>,
-  // when true proxy header fields will be trusted
-  mutable proxy: bool,
-  // offset of .subdomains to ignore, default to 2
-  mutable subdomainOffset: int,
-  // proxy ip header, default to X-Forwarded-For
-  mutable proxyIpHeader: string,
-  // max ips read from proxy ip header, default to 0 (means infinity)
-  mutable maxIpsCount: int,
+type koaOptions
+
+@obj
+external koaOptions: (
+  ~env: string=?,
+  ~keys: array<string>=?,
+  ~proxy: bool=?,
+  ~subdomainOffset: int=?,
+  ~proxyIpHeader: string=?,
+  ~maxIpsCount: int=?,
+  unit,
+) => koaOptions = ""
+
+module App = {
+  type t
+  @get external env: t => string = "env"
+  // TODO: properties
 }
 
-@module("koa") @new external koa: unit => app = "default"
-
+@module("koa") @new external koa: koaOptions => App.t = "default"
 // base on node.js http-server
 type server
 // simple object that just has key value
@@ -49,7 +51,6 @@ type req = {
   mutable accept: keyValue,
 }
 
-
 type res = {
   header: keyValue,
   headers: keyValue,
@@ -63,21 +64,21 @@ type res = {
   writable: bool,
 }
 
-// @send external accepts: (req, [string | array<string>]) => keyValue = "accepts"
-
 type context = {
   mutable body: string,
   request: req,
   response: res,
 }
+// application settings
 
-type middleware = (context,  (. unit) => Js.Promise.t<unit>) => Js.Promise.t<unit>
+
+// @send external accepts: (req, [string | array<string>]) => keyValue = "accepts"
+
+type middleware = (context, (. unit) => Js.Promise.t<unit>) => Js.Promise.t<unit>
 // type middleware = () =>
 
+@send external use: (App.t, middleware) => unit = "use"
 
-@send external use: (app, middleware) => unit = "use"
+@send external callback: (App.t, int) => NodeJs.Http.Server.t = "callback"
 
-@send external callback: (app, int) => server = "callback"
-
-@send external listen: (app, int, option<Js.Exn.t> => unit) => server = "listen"
-
+@send external listen: (App.t, int, option<Js.Exn.t> => unit) => NodeJs.Http.Server.t = "listen"

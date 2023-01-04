@@ -3,9 +3,7 @@
 
 var Koa = require("koa").default;
 
-var app = new Koa();
-
-app.env = "development";
+var app = new Koa({});
 
 app.use(async function (context, next) {
       console.log("1");
@@ -20,6 +18,8 @@ app.use(async function (param, next) {
       await next();
       console.log("4");
     });
+
+console.log(app.env);
 
 app.listen(8080, (function (param) {
         console.log("server is start success!");

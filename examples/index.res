@@ -1,9 +1,9 @@
 open Koa
 // init koa app
-let app = Koa.koa()
+let app = Koa.koa(koaOptions())
 
 // Just for instance.
-app.env = "development"
+// app.env = "development"
 
 // you can use middleware like this
 app->use(async (context, next) => {
@@ -19,5 +19,7 @@ app->use(async (_, next) => {
   await next(.)
   Js.log("4")
 })
+
+Js.log(app->App.env) 
 
 let _ = app->listen(8080, _ => {Js.Console.log("server is start success!")})
