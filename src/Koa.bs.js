@@ -2,7 +2,16 @@
 'use strict';
 
 
+var Req = {};
+
+var Res = {};
+
+var Ctx = {};
+
 var App = {};
 
+exports.Req = Req;
+exports.Res = Res;
+exports.Ctx = Ctx;
 exports.App = App;
 /* No side effect */
