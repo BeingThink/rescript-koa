@@ -1,7 +1,7 @@
 {
   "name": "@futurert/rescript-koa",
   "private": false,
-  "version": "0.0.1-beta.3",
+  "version": "0.0.1-beta.4",
   "description": "koa.js bindings for rescript.",
   "main": "index.js",
   "scripts": {
