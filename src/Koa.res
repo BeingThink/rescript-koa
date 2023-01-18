@@ -26,10 +26,16 @@ module Ctx = {
 
   type context = {
     mutable body: string,
+    store: Js.Dict.t<string>,
     request: req,
     response: res,
   }
+
+  @get external getStore: (context) => option<Js.Dict.t<string>> = "store" 
+  @set external setStore: (context, Js.Dict.t<string>) => unit = "store"
 }
+
+
 
 module App = {
   include Ctx
@@ -47,6 +53,12 @@ module App = {
   @send external callback: t => Http.Server.t = "callback"
   @send external use: (t, middleware) => unit = "use"
   @send external on: (t, string, (error, context) => unit) => unit = "on"
+
+  @get external getContext: (t) => context = "context"
+
+  // TODO: app.context
+  // @set external context: (t, string, string) => unit = "context"
 }
+
 
 @module("koa") @new external koa: koaOptions => App.t = "default"

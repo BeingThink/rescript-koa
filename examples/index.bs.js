@@ -3,10 +3,13 @@
 
 var Koa = require("koa").default;
 var Curry = require("rescript/lib/js/curry.js");
+var Js_dict = require("rescript/lib/js/js_dict.js");
+var Caml_option = require("rescript/lib/js/caml_option.js");
 
 var app = new Koa({});
 
 app.use(async function (context, next) {
+      console.log(Js_dict.get(context.store, "name"));
       console.log("1");
       context.body = "hello";
       await Curry._1(next, undefined);
@@ -21,13 +24,34 @@ app.use(async function (param, next) {
 
 app.env = "哈哈哈";
 
-app.listen(3000, "127.0.0.1", (function (param) {
-        console.log("哈哈哈");
-      }));
+var context = app.context;
+
+var store = context.store;
+
+context.store = Js_dict.fromArray([[
+        "name",
+        "pjw"
+      ]]);
+
+if (store !== undefined) {
+  Caml_option.valFromOption(store)["name"] = "pjw";
+} else {
+  console.log("哈哈哈");
+}
 
 app.on("error", (function (err, ctx) {
         console.log(err);
       }));
 
+app.listen(3000, "127.0.0.1", (function (param) {
+        console.log("哈哈哈");
+      }));
+
+console.log(function (param) {
+      app.env = param;
+    });
+
 exports.app = app;
+exports.context = context;
+exports.store = store;
 /* app Not a pure module */
