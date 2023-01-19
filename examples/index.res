@@ -7,6 +7,7 @@ let app = koa(koaOptions())
 
 // you can use middleware like this
 app->App.use(async (context, next) => {
+  context.cookies->Ctx.getCookies("name", Ctx.getOption(~signed=true, ()))
   Js.log(Js.Dict.get(context.store, "name"))
   Js.log("1")
   context.body = "hello"

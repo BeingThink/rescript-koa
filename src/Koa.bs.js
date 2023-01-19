@@ -10,8 +10,11 @@ var Ctx = {};
 
 var App = {};
 
+var Special = {};
+
 exports.Req = Req;
 exports.Res = Res;
 exports.Ctx = Ctx;
 exports.App = App;
+exports.Special = Special;
 /* No side effect */

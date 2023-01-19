@@ -9,6 +9,9 @@ var Caml_option = require("rescript/lib/js/caml_option.js");
 var app = new Koa({});
 
 app.use(async function (context, next) {
+      context.cookies.get("name", {
+            signed: true
+          });
       console.log(Js_dict.get(context.store, "name"));
       console.log("1");
       context.body = "hello";
