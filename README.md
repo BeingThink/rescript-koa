@@ -67,4 +67,4 @@ app->App.listen(~port = 3000, ~host= "127.0.0.1", ~callback= _ => Js.log("哈哈
 app->App.on("error", (err, ctx) => Js.log(err))
 ```
 
-There is a [full example](./examples//index.res) to help you start, Let's try it!
+There is a [Inact Project](https://github.com/BeingThink/rescript-koa-template) to help you start, Let's try it!
